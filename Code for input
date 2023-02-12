@@ -1,0 +1,18 @@
+import qrcode
+count=1
+prescription=""
+
+#Input medications
+while True:
+    ans=str(input(str(count)+" Input medications: "))
+    if ans=="":
+        break
+    else:
+        prescription+=ans+' '
+        count+=1
+
+# Generate QR code
+img = qrcode.make(prescription)
+
+# Save img to a file
+img.save("qrcode.png")
