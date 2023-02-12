@@ -1,0 +1,38 @@
+#include <fstream>
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+void change(){
+    //Change the pill tubes that are going to be filled
+}
+
+void pour(int which, int how_many, int pills){
+    while (pills != 0){
+        //Pour which substances and how many of them to the capsule
+        --pills;
+        change();
+    }
+    //Return to first pill
+}
+
+int main(){
+    ifstream fin("test.txt");
+    int n;
+    int a;
+    fin >> a;
+    char name [100];
+    char arr [4][100] = {"sub_a", "sub_b", "sub_c", "sub_d"};
+    while(fin >> name){
+        for (int i {0}; i < 4; ++i){
+            if (strcmp(name, arr[i]) == 0){
+                fin >> n;
+                pour(i, n, a);
+                break;
+            }
+        }
+    }
+    fin.close();
+    return 0;
+}
